@@ -10,9 +10,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* This is where other routes will go to allow Layout to be visible */}
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/countries" element={<Countries />}></Route>
-          <Route path="*" element={<ErrorPage />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/countries" element={<Countries />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
