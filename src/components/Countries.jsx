@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../services/countriesServices";
-import { Col, Container, Spinner } from "react-bootstrap";
+import { Col, Container, Image, Row, Spinner } from "react-bootstrap";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -21,23 +21,19 @@ const Countries = () => {
   }
 
   return (
-    <>
-      <div>Countries will be here</div>
-      {countries.map((country) => (
-        <Col className="text-center m-5" key={country.ccn3}>
-          <Container>
-            <img src={countries.flags.svg} alt="" />
-            <strong>{country.name.common}</strong>
-            <p>Capital: {country.capital}</p>
-          </Container>
-        </Col>
-      ))}
-      <Col className="text-center m-5">
-        <Container>
-          <strong>{}</strong>
-        </Container>
-      </Col>
-    </>
+    <Container fluid>
+      <Row>
+        {countries.map((country) => (
+          <Col key={country.name.common} xs={12} sm={6} md={5} lg={3} xl={3}>
+            <Container className="text-center p-5">
+              <Image src={country.flags.svg} alt="" fluid />
+              <strong>{country.name.common}</strong>
+              <p>Capital: {country.capital}</p>
+            </Container>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 
   // Handle the received data case
