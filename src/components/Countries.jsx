@@ -7,6 +7,8 @@ import {
   Container,
   Form,
   Image,
+  ListGroup,
+  ListGroupItem,
   Row,
   Spinner,
 } from "react-bootstrap";
@@ -45,20 +47,20 @@ const Countries = () => {
             style={{ width: "18rem" }}
             type="search"
             className="me-2"
-            placeHolder="Search"
+            placeholder="Search"
             aria-label="Search"
             onChange={(e) => dispatch(search(e.target.value))}
           ></Form.Control>
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className="g-3">
-        {countries.map((country) => {
+        {countries.map((country) => (
           <Col className="mt-5" key={country.name.official}>
             {/* Link will be here */}
             <Card className="h-100">
               <Card.Img
                 variant="top"
-                src={country.flag.svg}
+                src={country.flags.svg}
                 alt={country.name.common}
                 className="rounded h-50"
                 style={{
@@ -67,9 +69,30 @@ const Countries = () => {
                   maxHeight: "200px",
                 }}
               />
+              <Card.Body classname="d-flex flex-column">
+                <Card.Title>{country.name.common}</Card.Title>
+                <Card.Subtitle className="mb-5 text-muted">
+                  {country.name.official}
+                </Card.Subtitle>
+                <ListGroup
+                  variant="flush"
+                  className="flex-grow-1 justify-content-center"
+                >
+                  <ListGroup.Item>
+                    <i className="bi bi-people me-2">{country.population}</i>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <i className="me-2">
+                      {Object.values(country.currencies || {})
+                        .map((currency) => currency.name)
+                        .join(", ") || "No currency"}
+                    </i>
+                  </ListGroup.Item>
+                </ListGroup>
+              </Card.Body>
             </Card>
-          </Col>;
-        })}
+          </Col>
+        ))}
       </Row>
     </Container>
   );
