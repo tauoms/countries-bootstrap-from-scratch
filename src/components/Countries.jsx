@@ -1,12 +1,22 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../services/countriesServices";
-import { Col, Container, Image, Row, Spinner } from "react-bootstrap";
+import {
+  Card,
+  Col,
+  Container,
+  Form,
+  Image,
+  Row,
+  Spinner,
+} from "react-bootstrap";
+import { search } from "../store/countriesSlice";
 
 const Countries = () => {
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries.countries);
   const isLoading = useSelector((state) => state.countries.isLoading);
+  const searchInput = useSelector((state) => state.countries.search);
 
   console.log("Countries: ", countries);
   console.log("isLoading: ", isLoading);
@@ -17,21 +27,49 @@ const Countries = () => {
 
   // Handle the loading case here first (use Col, and Spinner)
   if (isLoading) {
-    return <Spinner animation="border" />;
+    return (
+      <Spinner
+        animation="border"
+        role="status"
+        variant="info"
+        className="center"
+      />
+    );
   }
 
   return (
     <Container fluid>
       <Row>
-        {countries.map((country) => (
-          <Col key={country.name.common} xs={12} sm={6} md={5} lg={3} xl={2}>
-            <Container className="text-center p-5">
-              <Image src={country.flags.svg} alt="" fluid />
-              <strong>{country.name.common}</strong>
-              <p>Capital: {country.capital}</p>
-            </Container>
-          </Col>
-        ))}
+        <Col className="mt-5 d-flex justify-content-center">
+          <Form.Control
+            style={{ width: "18rem" }}
+            type="search"
+            className="me-2"
+            placeHolder="Search"
+            aria-label="Search"
+            onChange={(e) => dispatch(search(e.target.value))}
+          ></Form.Control>
+        </Col>
+      </Row>
+      <Row xs={2} md={3} lg={4} className="g-3">
+        {countries.map((country) => {
+          <Col className="mt-5" key={country.name.official}>
+            {/* Link will be here */}
+            <Card className="h-100">
+              <Card.Img
+                variant="top"
+                src={country.flag.svg}
+                alt={country.name.common}
+                className="rounded h-50"
+                style={{
+                  objectFit: "cover",
+                  minHeight: "200px",
+                  maxHeight: "200px",
+                }}
+              />
+            </Card>
+          </Col>;
+        })}
       </Row>
     </Container>
   );
@@ -40,3 +78,23 @@ const Countries = () => {
 };
 
 export default Countries;
+
+{
+  /* {countries.map((country) => (
+          <Col
+          className="mt-5 d-flex justify-content-center"
+          key={country.name.common}
+          xs={12}
+          sm={6}
+          md={5}
+          lg={3}
+          xl={2}
+        >
+            <Container className="text-center p-4">
+              <Image src={country.flags.svg} alt="" fluid />
+              <strong>{country.name.common}</strong>
+              <p>Capital: {country.capital}</p>
+            </Container>
+          ))} 
+           </Col>*/
+}
