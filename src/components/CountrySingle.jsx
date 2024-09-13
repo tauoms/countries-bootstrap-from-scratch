@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Col, Container, Image, Row, Spinner } from "react-bootstrap";
+import { Button, Col, Container, Image, Row, Spinner } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -48,6 +48,7 @@ const CountrySingle = () => {
     <Container fluid className="mt-5 d-flex justify-content-center">
       <Row>
         <Col className="mt-5 d-flex flex-column align-items-center">
+          <Image src={country.flags.svg} style={{ maxHeight: "200px" }} />
           <h2>{country.name.common}</h2>
           <h3>{country.capital}</h3>
 
@@ -62,6 +63,9 @@ const CountrySingle = () => {
             <i class="h5 bi bi-wind" />
             {weather.wind.speed} m/s
           </div>
+          <Button variant="light" onClick={() => navigate("/countries")}>
+            Back to countries
+          </Button>
         </Col>
       </Row>
     </Container>

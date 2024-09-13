@@ -56,57 +56,63 @@ const Countries = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className="g-3">
-        {countries.map((country) => (
-          <Col className="mt-5" key={country.name.official}>
-            <Card className="h-100">
-              <LinkContainer
-                to={`/countries/${country.name.common}`}
-                state={{ country: country }}
-              >
-                <Card.Img
-                  variant="top"
-                  src={country.flags.svg}
-                  alt={country.name.common}
-                  className="rounded h-50"
-                  style={{
-                    objectFit: "cover",
-                    minHeight: "200px",
-                    maxHeight: "200px",
-                  }}
-                />
-              </LinkContainer>
-              <Card.Body classname="d-flex flex-column">
-                <Card.Title>{country.name.common}</Card.Title>
-                <Card.Subtitle className="mb-5 text-muted">
-                  {country.name.official}
-                </Card.Subtitle>
-                <ListGroup
-                  variant="flush"
-                  className="flex-grow-1 justify-content-center"
+        {countries
+          .filter((country) =>
+            country.name.common
+              .toLowerCase()
+              .includes(searchInput.toLowerCase())
+          )
+          .map((country) => (
+            <Col className="mt-5" key={country.name.official}>
+              <Card className="h-100">
+                <LinkContainer
+                  to={`/countries/${country.name.common}`}
+                  state={{ country: country }}
                 >
-                  <ListGroup.Item>
-                    <i className="h5 bi bi-people me-2" />
-                    {country.population.toLocaleString()}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <i className="h5 bi bi-cash-coin me-2" />
-                    {Object.values(country.currencies || {})
-                      .map(
-                        (currency) => `${currency.name} (${currency.symbol})`
-                      )
-                      .join(", ") || "No currency"}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <i className="h5 bi bi-chat-dots me-2" />
-                    {Object.values(country.languages || {})
-                      .map((language) => language)
-                      .join(", ") || "No official language"}
-                  </ListGroup.Item>
-                </ListGroup>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+                  <Card.Img
+                    variant="top"
+                    src={country.flags.svg}
+                    alt={country.name.common}
+                    className="rounded h-50"
+                    style={{
+                      objectFit: "cover",
+                      minHeight: "200px",
+                      maxHeight: "200px",
+                    }}
+                  />
+                </LinkContainer>
+                <Card.Body classname="d-flex flex-column">
+                  <Card.Title>{country.name.common}</Card.Title>
+                  <Card.Subtitle className="mb-5 text-muted">
+                    {country.name.official}
+                  </Card.Subtitle>
+                  <ListGroup
+                    variant="flush"
+                    className="flex-grow-1 justify-content-center"
+                  >
+                    <ListGroup.Item>
+                      <i className="h5 bi bi-people me-2" />
+                      {country.population.toLocaleString()}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <i className="h5 bi bi-cash-coin me-2" />
+                      {Object.values(country.currencies || {})
+                        .map(
+                          (currency) => `${currency.name} (${currency.symbol})`
+                        )
+                        .join(", ") || "No currency"}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <i className="h5 bi bi-chat-dots me-2" />
+                      {Object.values(country.languages || {})
+                        .map((language) => language)
+                        .join(", ") || "No official language"}
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
       </Row>
     </Container>
   );
