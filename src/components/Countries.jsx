@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../services/countriesServices";
 import {
+  Button,
   Card,
   Col,
   Container,
@@ -15,6 +16,7 @@ import {
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
 import { LinkContainer } from "react-router-bootstrap";
+import { addFavourite } from "../store/favouritesSlice";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -108,6 +110,14 @@ const Countries = () => {
                         .map((language) => language)
                         .join(", ") || "No official language"}
                     </ListGroup.Item>
+                    <Button
+                      variant="primary"
+                      onClick={() =>
+                        dispatch(addFavourite(country.name.common))
+                      }
+                    >
+                      Add Favourite
+                    </Button>
                   </ListGroup>
                 </Card.Body>
               </Card>
