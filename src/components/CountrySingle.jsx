@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Image, Spinner } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -29,20 +30,33 @@ const CountrySingle = () => {
 
   console.log("Weather: ", weather);
 
-  const dispatch = useDispatch();
-  //   console.log("location:", location);
-  //   console.log("navigate:", navigate);
+  // Handle the loading case first
 
-  console.log("Country:", country);
+  if (isWeatherLoading) {
+    // Create a spinner
+    return (
+      <Spinner
+        animation="border"
+        role="status"
+        variant="info"
+        className="center"
+      />
+    );
+  }
 
-  //   Not working yet:
-  //   useEffect(() => {
-  //     if (!location.state.country) {
-  //       navigate("/countries");
-  //     }
-  //   }, [location.state.country, navigate]);
+  // Show weather data here (min req: Temp, weather desciption, icon)
 
-  return <div>CountrySingle</div>;
+  return (
+    <>
+      <div>{weather.main.temp} °C</div>
+      <div>{weather.weather[0].description}</div>
+      <div>
+        <Image
+          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+        />
+      </div>
+    </>
+  );
 };
 
 export default CountrySingle;
