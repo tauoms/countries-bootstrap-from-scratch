@@ -14,6 +14,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
+import { LinkContainer } from "react-router-bootstrap";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -57,19 +58,23 @@ const Countries = () => {
       <Row xs={2} md={3} lg={4} className="g-3">
         {countries.map((country) => (
           <Col className="mt-5" key={country.name.official}>
-            {/* Link will be here */}
             <Card className="h-100">
-              <Card.Img
-                variant="top"
-                src={country.flags.svg}
-                alt={country.name.common}
-                className="rounded h-50"
-                style={{
-                  objectFit: "cover",
-                  minHeight: "200px",
-                  maxHeight: "200px",
-                }}
-              />
+              <LinkContainer
+                to={`/countries/${country.name.common}`}
+                state={{ country: country }}
+              >
+                <Card.Img
+                  variant="top"
+                  src={country.flags.svg}
+                  alt={country.name.common}
+                  className="rounded h-50"
+                  style={{
+                    objectFit: "cover",
+                    minHeight: "200px",
+                    maxHeight: "200px",
+                  }}
+                />
+              </LinkContainer>
               <Card.Body classname="d-flex flex-column">
                 <Card.Title>{country.name.common}</Card.Title>
                 <Card.Subtitle className="mb-5 text-muted">
@@ -81,7 +86,7 @@ const Countries = () => {
                 >
                   <ListGroup.Item>
                     <i className="bi bi-people me-2" />
-                    {country.population}
+                    {country.population.toLocaleString()}
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <i className="bi bi-cash-coin me-2" />
