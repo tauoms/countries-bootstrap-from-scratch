@@ -24,7 +24,7 @@ const Countries = () => {
     <Container fluid>
       <Row>
         {countries.map((country) => (
-          <Col key={country.name.common} xs={12} sm={6} md={5} lg={3} xl={3}>
+          <Col key={country.name.common} xs={12} sm={6} md={5} lg={3} xl={2}>
             <Container className="text-center p-5">
               <Image src={country.flags.svg} alt="" fluid />
               <strong>{country.name.common}</strong>
