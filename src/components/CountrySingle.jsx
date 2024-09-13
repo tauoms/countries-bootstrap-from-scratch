@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container, Image, Spinner } from "react-bootstrap";
+import { Col, Container, Image, Row, Spinner } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -44,21 +44,26 @@ const CountrySingle = () => {
     );
   }
 
-  // Show weather data here (min req: Temp, weather desciption, icon)
-
   return (
-    <Container fluid className="mt-5 d-flex flex-column align-items-center">
-      <div>{weather.main.temp.toFixed(1)} °C</div>
-      <div>
-        <Image
-          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-        />
-      </div>
-      <div>{weather.weather[0].description}</div>
-      <div>
-        <i class="h4 bi bi-wind" />
-        {weather.wind.speed} m/s
-      </div>
+    <Container fluid className="mt-5 d-flex justify-content-center">
+      <Row>
+        <Col className="mt-5 d-flex flex-column align-items-center">
+          <h2>{country.name.common}</h2>
+          <h3>{country.capital}</h3>
+
+          <div>{weather.main.temp.toFixed(1)} °C</div>
+          <div>
+            <Image
+              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            />
+          </div>
+          <div>{weather.weather[0].description}</div>
+          <div>
+            <i class="h5 bi bi-wind" />
+            {weather.wind.speed} m/s
+          </div>
+        </Col>
+      </Row>
     </Container>
   );
 };
