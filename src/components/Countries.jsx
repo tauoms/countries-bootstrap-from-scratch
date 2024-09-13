@@ -84,7 +84,16 @@ const Countries = () => {
                   <ListGroup.Item>
                     <i className="me-2">
                       {Object.values(country.currencies || {})
-                        .map((currency) => currency.name)
+                        .map(
+                          (currency) => `${currency.name} (${currency.symbol})`
+                        )
+                        .join(", ") || "No currency"}
+                    </i>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <i className="me-2">
+                      {Object.values(country.languages || {})
+                        .map((language) => language)
                         .join(", ") || "No currency"}
                     </i>
                   </ListGroup.Item>
