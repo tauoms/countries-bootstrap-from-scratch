@@ -95,7 +95,7 @@ const Countries = () => {
                     <i className="bi bi-chat-dots me-2" />
                     {Object.values(country.languages || {})
                       .map((language) => language)
-                      .join(", ") || "No currency"}
+                      .join(", ") || "No official language"}
                   </ListGroup.Item>
                 </ListGroup>
               </Card.Body>
