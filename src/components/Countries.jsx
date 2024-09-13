@@ -12,6 +12,7 @@ import {
   Row,
   Spinner,
 } from "react-bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
 
 const Countries = () => {
@@ -79,23 +80,22 @@ const Countries = () => {
                   className="flex-grow-1 justify-content-center"
                 >
                   <ListGroup.Item>
-                    <i className="bi bi-people me-2">{country.population}</i>
+                    <i className="bi bi-people me-2" />
+                    {country.population}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <i className="me-2">
-                      {Object.values(country.currencies || {})
-                        .map(
-                          (currency) => `${currency.name} (${currency.symbol})`
-                        )
-                        .join(", ") || "No currency"}
-                    </i>
+                    <i className="bi bi-cash-coin me-2" />
+                    {Object.values(country.currencies || {})
+                      .map(
+                        (currency) => `${currency.name} (${currency.symbol})`
+                      )
+                      .join(", ") || "No currency"}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <i className="me-2">
-                      {Object.values(country.languages || {})
-                        .map((language) => language)
-                        .join(", ") || "No currency"}
-                    </i>
+                    <i className="bi bi-chat-dots me-2" />
+                    {Object.values(country.languages || {})
+                      .map((language) => language)
+                      .join(", ") || "No currency"}
                   </ListGroup.Item>
                 </ListGroup>
               </Card.Body>
