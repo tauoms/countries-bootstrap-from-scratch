@@ -16,7 +16,7 @@ import {
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
 import { LinkContainer } from "react-router-bootstrap";
-import { addFavourite } from "../store/favouritesSlice";
+import { addFavourite, removeFavourite } from "../store/favouritesSlice";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -117,6 +117,14 @@ const Countries = () => {
                       }
                     >
                       Add Favourite
+                    </Button>
+                    <Button
+                      variant="warning"
+                      onClick={() =>
+                        dispatch(removeFavourite(country.name.common))
+                      }
+                    >
+                      Remove Favourite
                     </Button>
                   </ListGroup>
                 </Card.Body>
