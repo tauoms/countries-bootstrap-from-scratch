@@ -17,6 +17,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
 import { LinkContainer } from "react-router-bootstrap";
 import { addFavourite, removeFavourite } from "../store/favouritesSlice";
+import { Link } from "react-router-dom";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const Countries = () => {
           .map((country) => (
             <Col className="mt-5" key={country.name.official}>
               <Card className="h-100">
-                <LinkContainer
+                <Link
                   to={`/countries/${country.name.common}`}
                   state={{ country: country }}
                 >
@@ -82,7 +83,7 @@ const Countries = () => {
                       maxHeight: "200px",
                     }}
                   />
-                </LinkContainer>
+                </Link>
                 <Card.Body classname="d-flex flex-column">
                   <Card.Title>{country.name.common}</Card.Title>
                   <Card.Subtitle className="mb-5 text-muted">
