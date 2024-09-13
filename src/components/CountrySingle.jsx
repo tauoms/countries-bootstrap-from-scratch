@@ -55,6 +55,10 @@ const CountrySingle = () => {
         />
       </div>
       <div>{weather.weather[0].description}</div>
+      <div>
+        <i class="h4 bi bi-wind" />
+        {weather.wind.speed} m/s
+      </div>
     </Container>
   );
 };

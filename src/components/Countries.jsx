@@ -85,11 +85,11 @@ const Countries = () => {
                   className="flex-grow-1 justify-content-center"
                 >
                   <ListGroup.Item>
-                    <i className="bi bi-people me-2" />
+                    <i className="h5 bi bi-people me-2" />
                     {country.population.toLocaleString()}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <i className="bi bi-cash-coin me-2" />
+                    <i className="h5 bi bi-cash-coin me-2" />
                     {Object.values(country.currencies || {})
                       .map(
                         (currency) => `${currency.name} (${currency.symbol})`
@@ -97,7 +97,7 @@ const Countries = () => {
                       .join(", ") || "No currency"}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <i className="bi bi-chat-dots me-2" />
+                    <i className="h5 bi bi-chat-dots me-2" />
                     {Object.values(country.languages || {})
                       .map((language) => language)
                       .join(", ") || "No official language"}
