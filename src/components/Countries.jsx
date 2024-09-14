@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 const Countries = () => {
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries.countries);
+  const favourites = useSelector((state) => state.favourites.favourites);
   const isLoading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
 
@@ -82,7 +83,15 @@ const Countries = () => {
                   />
                 </Link>
                 <Card.Body classname="d-flex flex-column">
-                  <Card.Title>{country.name.common}</Card.Title>
+                  <Card.Title>
+                    {favourites.includes(country.name.common) && (
+                      <i
+                        className="h5 bi bi-star-fill me-2"
+                        style={{ color: "gold" }}
+                      />
+                    )}
+                    {country.name.common}
+                  </Card.Title>
                   <Card.Subtitle className="mb-5 text-muted">
                     {country.name.official}
                   </Card.Subtitle>
@@ -108,22 +117,26 @@ const Countries = () => {
                         .map((language) => language)
                         .join(", ") || "No official language"}
                     </ListGroup.Item>
-                    <Button
-                      variant="primary"
-                      onClick={() =>
-                        dispatch(addFavourite(country.name.common))
-                      }
-                    >
-                      Add Favourite
-                    </Button>
-                    <Button
-                      variant="warning"
-                      onClick={() =>
-                        dispatch(removeFavourite(country.name.common))
-                      }
-                    >
-                      Remove Favourite
-                    </Button>
+                    {!favourites.includes(country.name.common) && (
+                      <Button
+                        variant="primary"
+                        onClick={() =>
+                          dispatch(addFavourite(country.name.common))
+                        }
+                      >
+                        Add Favourite
+                      </Button>
+                    )}
+                    {favourites.includes(country.name.common) && (
+                      <Button
+                        variant="warning"
+                        onClick={() =>
+                          dispatch(removeFavourite(country.name.common))
+                        }
+                      >
+                        Remove Favourite
+                      </Button>
+                    )}
                   </ListGroup>
                 </Card.Body>
               </Card>
