@@ -13,7 +13,6 @@ import {
 } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
-import { LinkContainer } from "react-router-bootstrap";
 import { addFavourite, removeFavourite } from "../store/favouritesSlice";
 import { Link } from "react-router-dom";
 
