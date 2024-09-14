@@ -65,7 +65,7 @@ const Countries = () => {
           )
           .map((country) => (
             <Col className="mt-5" key={country.name.official}>
-              <Card className="h-100">
+              <Card className="h-100 d-flex flex-column">
                 <Link
                   to={`/countries/${country.name.common}`}
                   state={{ country: country }}
@@ -82,23 +82,22 @@ const Countries = () => {
                     }}
                   />
                 </Link>
-                <Card.Body classname="d-flex flex-column">
-                  <Card.Title>
-                    {favourites.includes(country.name.common) && (
-                      <i
-                        className="h5 bi bi-star-fill me-2"
-                        style={{ color: "gold" }}
-                      />
-                    )}
-                    {country.name.common}
-                  </Card.Title>
-                  <Card.Subtitle className="mb-5 text-muted">
-                    {country.name.official}
-                  </Card.Subtitle>
-                  <ListGroup
-                    variant="flush"
-                    className="flex-grow-1 justify-content-center"
-                  >
+                <Card.Body className="d-flex flex-column justify-content-between">
+                  <div>
+                    <Card.Title>
+                      {favourites.includes(country.name.common) && (
+                        <i
+                          className="h5 bi bi-star-fill me-2"
+                          style={{ color: "gold" }}
+                        />
+                      )}
+                      {country.name.common}
+                    </Card.Title>
+                    <Card.Subtitle className="mb-5 text-muted">
+                      {country.name.official}
+                    </Card.Subtitle>
+                  </div>
+                  <ListGroup variant="flush" className="flex-grow-1">
                     <ListGroup.Item>
                       <i className="h5 bi bi-people me-2" />
                       {country.population.toLocaleString()}
@@ -117,9 +116,12 @@ const Countries = () => {
                         .map((language) => language)
                         .join(", ") || "No official language"}
                     </ListGroup.Item>
+                  </ListGroup>
+                  <div className="mt-3">
                     {!favourites.includes(country.name.common) && (
                       <Button
                         variant="primary"
+                        className="w-100"
                         onClick={() =>
                           dispatch(addFavourite(country.name.common))
                         }
@@ -130,6 +132,7 @@ const Countries = () => {
                     {favourites.includes(country.name.common) && (
                       <Button
                         variant="warning"
+                        className="w-100"
                         onClick={() =>
                           dispatch(removeFavourite(country.name.common))
                         }
@@ -137,7 +140,7 @@ const Countries = () => {
                         Remove Favourite
                       </Button>
                     )}
-                  </ListGroup>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
