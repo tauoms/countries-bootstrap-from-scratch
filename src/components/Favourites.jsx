@@ -13,7 +13,11 @@ import {
 } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
-import { addFavourite, removeFavourite } from "../store/favouritesSlice";
+import {
+  addFavourite,
+  clearFavourites,
+  removeFavourite,
+} from "../store/favouritesSlice";
 import { Link } from "react-router-dom";
 
 const Favourites = () => {
@@ -54,6 +58,9 @@ const Favourites = () => {
             aria-label="Search"
             onChange={(e) => dispatch(search(e.target.value))}
           ></Form.Control>
+          <Button variant="warning" onClick={() => dispatch(clearFavourites())}>
+            Clear Favourites
+          </Button>
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className="g-3">
@@ -110,14 +117,7 @@ const Favourites = () => {
                         .map((language) => language)
                         .join(", ") || "No official language"}
                     </ListGroup.Item>
-                    <Button
-                      variant="primary"
-                      onClick={() =>
-                        dispatch(addFavourite(country.name.common))
-                      }
-                    >
-                      Add Favourite
-                    </Button>
+
                     <Button
                       variant="warning"
                       onClick={() =>
