@@ -86,7 +86,7 @@ const Favourites = () => {
                     }}
                   />
                 </Link>
-                <Card.Body classname="d-flex flex-column justify-content-between">
+                <Card.Body className="d-flex flex-column justify-content-between">
                   <div>
                     <Card.Title>{country.name.common}</Card.Title>
                     <Card.Subtitle className="mb-5 text-muted">
