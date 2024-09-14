@@ -7,9 +7,7 @@ import {
   Col,
   Container,
   Form,
-  Image,
   ListGroup,
-  ListGroupItem,
   Row,
   Spinner,
 } from "react-bootstrap";
