@@ -13,11 +13,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
-import {
-  addFavourite,
-  clearFavourites,
-  removeFavourite,
-} from "../store/favouritesSlice";
+import { clearFavourites, removeFavourite } from "../store/favouritesSlice";
 import { Link } from "react-router-dom";
 
 const Favourites = () => {
@@ -73,7 +69,7 @@ const Favourites = () => {
           )
           .map((country) => (
             <Col className="mt-5" key={country.name.official}>
-              <Card className="h-100">
+              <Card className="h-100 d-flex flex-column">
                 <Link
                   to={`/countries/${country.name.common}`}
                   state={{ country: country }}
@@ -90,15 +86,14 @@ const Favourites = () => {
                     }}
                   />
                 </Link>
-                <Card.Body classname="d-flex flex-column">
-                  <Card.Title>{country.name.common}</Card.Title>
-                  <Card.Subtitle className="mb-5 text-muted">
-                    {country.name.official}
-                  </Card.Subtitle>
-                  <ListGroup
-                    variant="flush"
-                    className="flex-grow-1 justify-content-center"
-                  >
+                <Card.Body classname="d-flex flex-column justify-content-between">
+                  <div>
+                    <Card.Title>{country.name.common}</Card.Title>
+                    <Card.Subtitle className="mb-5 text-muted">
+                      {country.name.official}
+                    </Card.Subtitle>
+                  </div>
+                  <ListGroup variant="flush" className="flex-grow-1">
                     <ListGroup.Item>
                       <i className="h5 bi bi-people me-2" />
                       {country.population.toLocaleString()}
@@ -117,16 +112,18 @@ const Favourites = () => {
                         .map((language) => language)
                         .join(", ") || "No official language"}
                     </ListGroup.Item>
-
+                  </ListGroup>
+                  <div className="mt-3">
                     <Button
                       variant="warning"
+                      className="w-100"
                       onClick={() =>
                         dispatch(removeFavourite(country.name.common))
                       }
                     >
                       Remove Favourite
                     </Button>
-                  </ListGroup>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
