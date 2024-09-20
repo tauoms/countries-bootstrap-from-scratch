@@ -27,7 +27,7 @@ const Register = () => {
   return (
     <Container
       fluid
-      className="d-flex flex-column justify-content-center align-items-center 100vh"
+      className="d-flex flex-column align-items-center mt-5"
       style={{ minHeight: "100vh" }}
     >
       <div className="d-flex flex-column gap-3">

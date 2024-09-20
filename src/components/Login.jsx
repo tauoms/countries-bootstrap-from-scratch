@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { Button, Container } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, loginWithEmailAndPassword } from "../auth/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+
+  const handleLogin = () => {
+    loginWithEmailAndPassword(email, password);
+  };
 
   return (
     <Container
       fluid
-      className="d-flex flex-column justify-content-center align-items-center 100vh"
+      className="d-flex flex-column align-items-center mt-5"
       style={{ minHeight: "100vh" }}
     >
+      <div>Hello {user?.email}</div>
       <div className="d-flex flex-column gap-3">
         <input
           type="email"
@@ -24,7 +32,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <Button>Log in</Button>
+        <Button onClick={handleLogin}>Log in</Button>
       </div>
     </Container>
   );
