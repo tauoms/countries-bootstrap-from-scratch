@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -54,4 +54,43 @@ const logout = () => {
     signOut(auth);
 }
 
-export { auth, db, loginWithEmailAndPassword, registerWithEmailAndPassword, logout };
+const addFavouriteToFirebase = async (uid, name) => {
+    try {
+        await addDoc(collection(db, `users/${uid}/favourites`), {name});
+        console.log("Favourite added to Firebase");
+    } catch (error) {
+        console.log("Error adding favourite to firebase", error)
+    }
+}
+
+const removeFavouriteFromFirebase = async (uid, name) => {
+    try {
+        if (!name) {
+            console.error("Error removing favourite from Firebase: Name parameter undefined");
+            return;
+        }
+        const q = query(collection(db, `users/${uid}/favourites`), where("name", "==", name));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            deleteDoc(doc.ref);
+            console.log("Favourite removed from Firebase");
+        })
+    } catch (error) {
+        console.log("Error removing favourite from Firebase", error);
+    }
+}
+
+const clearFavouritesFromFirebase = async (uid) => {
+    try {
+        const q = query(collection(db, `users/${uid}/favourites`));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            deleteDoc(doc.ref);
+            console.log("Favourites cleared from Firebase");
+        })
+    } catch (error) {
+        console.log("Error clearing favourites from Firebase", error);
+    }
+}
+
+export { auth, db, loginWithEmailAndPassword, registerWithEmailAndPassword, logout, addFavouriteToFirebase, removeFavouriteFromFirebase, clearFavouritesFromFirebase };
