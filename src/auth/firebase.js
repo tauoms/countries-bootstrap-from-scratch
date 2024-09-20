@@ -63,13 +63,13 @@ const addFavouriteToFirebase = async (uid, name) => {
     }
 }
 
-const removeFavouriteFromFirebase = async (uid, name) => {
+const removeFavouriteFromFirebase = async (uid, CountryName) => {
     try {
-        if (!name) {
+        if (!CountryName) {
             console.error("Error removing favourite from Firebase: Name parameter undefined");
             return;
         }
-        const q = query(collection(db, `users/${uid}/favourites`), where("name", "==", name));
+        const q = query(collection(db, `users/${uid}/favourites`), where("name", "==", CountryName));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
             deleteDoc(doc.ref);
