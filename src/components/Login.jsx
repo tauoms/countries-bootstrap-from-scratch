@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, loginWithEmailAndPassword } from "../auth/firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     loginWithEmailAndPassword(email, password);
@@ -33,6 +35,9 @@ const Login = () => {
           placeholder="Password"
         />
         <Button onClick={handleLogin}>Log in</Button>
+        <Button onClick={() => navigate("/register")}>
+          Don't have an account?
+        </Button>
       </div>
     </Container>
   );
