@@ -17,8 +17,9 @@ const Register = () => {
   const handleRegister = () => {
     if (!name) {
       alert("Name is required");
+    } else {
+      registerWithEmailAndPassword(name, email, password);
     }
-    registerWithEmailAndPassword(name, email, password);
   };
 
   // TODO: Add a check to see if user is logged in and navigate to countries if logged in
