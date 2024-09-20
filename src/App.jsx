@@ -5,6 +5,7 @@ import ErrorPage from "./components/ErrorPage";
 import Countries from "./components/Countries";
 import CountrySingle from "./components/CountrySingle";
 import Favourites from "./components/Favourites";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           {/* This is where other routes will go to allow Layout to be visible */}
           <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/countries" element={<Countries />} />
           <Route path="countries/:single" element={<CountrySingle />} />
           <Route path="/favourites" element={<Favourites />} />
