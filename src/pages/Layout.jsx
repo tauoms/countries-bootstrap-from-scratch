@@ -37,7 +37,12 @@ const Layout = () => {
                     <Nav.Link>Log in</Nav.Link>
                   </LinkContainer>
                 )}
-                {user && <Button onClick={logout}>Log out</Button>}
+                {user && (
+                  <>
+                    <Button onClick={logout}>Log out</Button>{" "}
+                    <div>Hello {user.email}</div>
+                  </>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
