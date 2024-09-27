@@ -28,7 +28,7 @@ export const favouritesSlice = createSlice({
         getFavourites(state, action) {
             state.favourites = action.payload;
         },
-        isLoading(state, action) {
+        favouritesIsLoading(state, action) {
             state.isLoading = action.payload;
         }
     },
@@ -44,6 +44,6 @@ export const getFavouritesFromSource = () => async (dispatch) => {
     }
 }
 
-export const { addFavourite, clearFavourites, removeFavourite, getFavourites, isLoading } = favouritesSlice.actions;
+export const { addFavourite, clearFavourites, removeFavourite, getFavourites, favouritesIsLoading } = favouritesSlice.actions;
 
 export default favouritesSlice.reducer;

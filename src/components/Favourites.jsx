@@ -13,7 +13,11 @@ import {
 } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
-import { clearFavourites, removeFavourite } from "../store/favouritesSlice";
+import {
+  clearFavourites,
+  getFavouritesFromSource,
+  removeFavourite,
+} from "../store/favouritesSlice";
 import { Link } from "react-router-dom";
 
 const Favourites = () => {
@@ -21,7 +25,9 @@ const Favourites = () => {
   let countriesList = useSelector((state) => state.countries.countries);
   const [search, setSearch] = useState("");
   const favouritesList = useSelector((state) => state.favourites.favourites);
-  const favouritesLoading = useSelector((state) => state.favourites.isLoading);
+  const favouritesLoading = useSelector(
+    (state) => state.favourites.favouritesIsLoading
+  );
   const countriesLoading = useSelector((state) => state.countries.isLoading);
   // const searchInput = useSelector((state) => state.countries.search);
 
