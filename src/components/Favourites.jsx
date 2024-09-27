@@ -32,8 +32,10 @@ const Favourites = () => {
   // const searchInput = useSelector((state) => state.countries.search);
 
   console.log("Countries: ", countriesList);
+  console.log("favouritesList: ", favouritesList);
+  console.log("countriesList inside favourites: ", countriesList);
 
-  if (favouritesList !== null) {
+  if (Array.isArray(favouritesList) && favouritesList.length > 0) {
     countriesList = countriesList.filter((country) =>
       favouritesList.includes(country.name.common)
     );

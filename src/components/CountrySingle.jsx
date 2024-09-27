@@ -4,9 +4,9 @@ import { Button, Col, Container, Image, Row, Spinner } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-const CountrySingle = () => {
+const CountrySingle = (props) => {
   const location = useLocation();
-  const country = location.state.country;
+  const country = props.country || location.state.country;
   const [weather, setWeather] = useState("");
   const [isWeatherLoading, setisWeatherLoading] = useState(true);
 
