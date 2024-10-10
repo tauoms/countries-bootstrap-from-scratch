@@ -26,6 +26,17 @@ const Countries = () => {
   console.log("Countries: ", countries);
   console.log("isLoading: ", isLoading);
 
+  // useEffect(() => {
+  //   const exampleMapTest = () => {
+  //     console.time("exampleMapTest start:");
+  //     countries.map((country) => {
+  //       console.log(country.name.common);
+  //     });
+  //     console.timeEnd("exampleMapTest end:");
+  //   };
+  //   exampleMapTest();
+  // }, [dispatch]);
+
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
