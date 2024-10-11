@@ -1,7 +1,7 @@
 import { Button, Card, Col, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFavourite } from "../store/favouritesSlice";
+import { addFavourite, removeFavourite } from "../store/favouritesSlice";
 
 const CountryCard = ({ country }) => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const CountryCard = ({ country }) => {
             variant="top"
             src={country.flags.svg}
             alt={country.name.common}
-            className="rounded h-50"
+            className="rounded"
             style={{
               objectFit: "cover",
               minHeight: "200px",
