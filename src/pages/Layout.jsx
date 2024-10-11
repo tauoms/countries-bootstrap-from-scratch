@@ -39,7 +39,9 @@ const Layout = () => {
                 )}
                 {user && (
                   <>
-                    <Button onClick={logout}>Log out</Button>{" "}
+                    <Button className="button-bright" onClick={logout}>
+                      Log out
+                    </Button>{" "}
                     <div>Hello {user.email}</div>
                   </>
                 )}

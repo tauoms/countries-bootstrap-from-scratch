@@ -30,22 +30,22 @@ const CountryCard = ({ country }) => {
         <Card.Body className="card d-flex flex-column justify-content-between">
           <div>
             <Card.Title>{country.name.common}</Card.Title>
-            <Card.Subtitle className="mb-5 text-muted">
+            <Card.Subtitle className="subtitle mb-5">
               {country.name.official}
             </Card.Subtitle>
           </div>
           <ListGroup variant="flush" className="flex-grow-1">
-            <ListGroup.Item className="cstm-listgrp">
+            <ListGroup.Item className="cstm-listgrp rounded-1">
               <i className="h5 bi bi-people me-2" />
               {country.population.toLocaleString()}
             </ListGroup.Item>
-            <ListGroup.Item className="cstm-listgrp">
+            <ListGroup.Item className="cstm-listgrp rounded-1">
               <i className="h5 bi bi-cash-coin me-2" />
               {Object.values(country.currencies || {})
                 .map((currency) => `${currency.name} (${currency.symbol})`)
                 .join(", ") || "No currency"}
             </ListGroup.Item>
-            <ListGroup.Item className="cstm-listgrp">
+            <ListGroup.Item className="cstm-listgrp rounded-1">
               <i className="h5 bi bi-chat-dots me-2" />
               {Object.values(country.languages || {})
                 .map((language) => language)
@@ -55,8 +55,7 @@ const CountryCard = ({ country }) => {
           <div className="mt-3">
             {!favouritesList.includes(country.name.common) && (
               <Button
-                variant="primary"
-                className="w-100"
+                className="button-bright w-100"
                 onClick={() => dispatch(addFavourite(country.name.common))}
               >
                 Add Favourite
@@ -66,7 +65,7 @@ const CountryCard = ({ country }) => {
             {favouritesList.includes(country.name.common) && (
               <Button
                 variant="warning"
-                className="w-100"
+                className="button-dark w-100"
                 onClick={() => dispatch(removeFavourite(country.name.common))}
               >
                 Remove Favourite

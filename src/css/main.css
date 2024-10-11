@@ -12,10 +12,38 @@ body {
   border: 0px;
 }
 
-.search {
-  background-color: #d4cbe1;
+.subtitle {
+  color: #a09aab;
+}
+
+.cstm-listgrp {
+  border-radius: 10px;
 }
 
 .cstm-listgrp:nth-child(odd) {
   background-color: #7c6f89;
+}
+
+.search {
+  background-color: #d4cbe1;
+}
+
+.button-bright {
+  background-color: #936cc9;
+  border: 0px;
+}
+
+.button-bright:hover {
+  background-color: #a47ae0;
+}
+
+.button-dark {
+  background-color: #413b49;
+  border: 0px;
+  color: #a09aab;
+}
+
+.button-dark:hover {
+  background-color: #4b4554;
+  color: #a09aab;
 }

@@ -77,7 +77,10 @@ const Favourites = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </Form>
-          <Button variant="warning" onClick={() => dispatch(clearFavourites())}>
+          <Button
+            className="button-dark"
+            onClick={() => dispatch(clearFavourites())}
+          >
             Clear Favourites
           </Button>
         </Col>
