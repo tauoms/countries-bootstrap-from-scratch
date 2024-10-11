@@ -15,6 +15,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
 import { addFavourite, removeFavourite } from "../store/favouritesSlice";
 import { Link } from "react-router-dom";
+import CountryCard from "./CountryCard";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -75,86 +76,7 @@ const Countries = () => {
               .includes(searchInput.toLowerCase())
           )
           .map((country) => (
-            <Col className="mt-5" key={country.name.official}>
-              <Card className="h-100 d-flex flex-column">
-                <Link
-                  to={`/countries/${country.name.common}`}
-                  state={{ country: country }}
-                >
-                  <Card.Img
-                    variant="top"
-                    src={country.flags.svg}
-                    alt={country.name.common}
-                    className="rounded h-50"
-                    style={{
-                      objectFit: "cover",
-                      minHeight: "200px",
-                      maxHeight: "200px",
-                    }}
-                  />
-                </Link>
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
-                    <Card.Title>
-                      {favourites.includes(country.name.common) && (
-                        <i
-                          className="h5 bi bi-star-fill me-2"
-                          style={{ color: "gold" }}
-                        />
-                      )}
-                      {country.name.common}
-                    </Card.Title>
-                    <Card.Subtitle className="mb-5 text-muted">
-                      {country.name.official}
-                    </Card.Subtitle>
-                  </div>
-                  <ListGroup variant="flush" className="flex-grow-1">
-                    <ListGroup.Item>
-                      <i className="h5 bi bi-people me-2" />
-                      {country.population.toLocaleString()}
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <i className="h5 bi bi-cash-coin me-2" />
-                      {Object.values(country.currencies || {})
-                        .map(
-                          (currency) => `${currency.name} (${currency.symbol})`
-                        )
-                        .join(", ") || "No currency"}
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <i className="h5 bi bi-chat-dots me-2" />
-                      {Object.values(country.languages || {})
-                        .map((language) => language)
-                        .join(", ") || "No official language"}
-                    </ListGroup.Item>
-                  </ListGroup>
-                  <div className="mt-3">
-                    {!favourites.includes(country.name.common) && (
-                      <Button
-                        variant="primary"
-                        className="w-100"
-                        onClick={() =>
-                          dispatch(addFavourite(country.name.common))
-                        }
-                      >
-                        Add Favourite
-                      </Button>
-                    )}
-                    {favourites.includes(country.name.common) && (
-                      <Button
-                        variant="warning"
-                        className="w-100"
-                        onClick={() =>
-                          dispatch(removeFavourite(country.name.common))
-                        }
-                      >
-                        Remove Favourite
-                      </Button>
-                    )}
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
+            <CountryCard key={country.name.common} country={country} />
           ))}
       </Row>
     </Container>

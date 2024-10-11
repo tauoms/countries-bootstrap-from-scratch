@@ -1,10 +1,11 @@
 import { Button, Card, Col, ListGroup } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeFavourite } from "../store/favouritesSlice";
 
 const CountryCard = ({ country }) => {
   const dispatch = useDispatch();
+  const favouritesList = useSelector((state) => state.favourites.favourites);
 
   return (
     <Col className="mt-5" key={country.name.official}>
@@ -51,13 +52,25 @@ const CountryCard = ({ country }) => {
             </ListGroup.Item>
           </ListGroup>
           <div className="mt-3">
-            <Button
-              variant="warning"
-              className="w-100"
-              onClick={() => dispatch(removeFavourite(country.name.common))}
-            >
-              Remove Favourite
-            </Button>
+            {!favouritesList.includes(country.name.common) && (
+              <Button
+                variant="primary"
+                className="w-100"
+                onClick={() => dispatch(addFavourite(country.name.common))}
+              >
+                Add Favourite
+              </Button>
+            )}
+
+            {favouritesList.includes(country.name.common) && (
+              <Button
+                variant="warning"
+                className="w-100"
+                onClick={() => dispatch(removeFavourite(country.name.common))}
+              >
+                Remove Favourite
+              </Button>
+            )}
           </div>
         </Card.Body>
       </Card>
