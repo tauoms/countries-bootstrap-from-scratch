@@ -23,6 +23,7 @@ const CountryCard = ({ country }) => {
               objectFit: "cover",
               minHeight: "200px",
               maxHeight: "200px",
+              minWidth: "100%",
             }}
           />
         </Link>
