@@ -24,12 +24,14 @@ const Login = () => {
       <div className="d-flex flex-column gap-3">
         <input
           type="email"
+          className="input-box"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail"
         />
         <input
           type="password"
+          className="input-box"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"

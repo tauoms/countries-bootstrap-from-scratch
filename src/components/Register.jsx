@@ -33,23 +33,28 @@ const Register = () => {
       <div className="d-flex flex-column gap-3">
         <input
           type="text"
+          className="input-box"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Full Name"
         />
         <input
           type="email"
+          className="input-box"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail"
         />
         <input
           type="password"
+          className="input-box"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <Button onClick={handleRegister}>Register</Button>
+        <Button className="button-bright" onClick={handleRegister}>
+          Register
+        </Button>
       </div>
     </Container>
   );

@@ -20,8 +20,22 @@ body {
   background-color: #7c6f89;
 }
 
-.search {
+.search,
+.input-box {
   background-color: #d4cbe1;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.search:focus,
+.search:active,
+.input-box:focus,
+.input-box:active {
+  background-color: #e8dff7;
+  border: 2px solid #936cc9;
+  outline: none;
 }
 
 .button-bright {
@@ -50,4 +64,15 @@ body {
 
 .navlink-active {
   color: #ede3fb;
+}
+
+img {
+  -webkit-filter: grayscale(18%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(18%);
+  transition: filter 0.5s ease-in-out;
+}
+
+.card:hover img {
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
 }
