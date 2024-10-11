@@ -71,7 +71,7 @@ const Favourites = () => {
             <Form.Control
               style={{ width: "18rem" }}
               type="search"
-              className="me-2"
+              className="search me-2"
               placeholder="Search"
               aria-label="Search"
               onChange={(e) => setSearch(e.target.value)}

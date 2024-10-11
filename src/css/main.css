@@ -1,0 +1,21 @@
+body {
+  background-color: #1a1423;
+  font-family: "Inter", "Courier New";
+  letter-spacing: 120%;
+}
+
+.card,
+.cstm-nav,
+.cstm-listgrp {
+  background-color: #655b70;
+  color: #d4cbe1;
+  border: 0px;
+}
+
+.search {
+  background-color: #d4cbe1;
+}
+
+.cstm-listgrp:nth-child(odd) {
+  background-color: #7c6f89;
+}
