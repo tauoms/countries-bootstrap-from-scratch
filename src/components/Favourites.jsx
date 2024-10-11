@@ -64,7 +64,7 @@ const Favourites = () => {
   }
 
   return (
-    <Container fluid>
+    <Container className="container-lg" style={{ maxWidth: "1300px" }}>
       <Row>
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
