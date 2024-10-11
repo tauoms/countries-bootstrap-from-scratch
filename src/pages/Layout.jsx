@@ -21,16 +21,16 @@ const Layout = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="align-items-center">
                 <LinkContainer to="/">
-                  <Nav.Link>Home</Nav.Link>
+                  <Nav.Link className="navlink">Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/countries">
-                  <Nav.Link>Countries</Nav.Link>
+                  <Nav.Link className="navlink">Countries</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/favourites">
-                  <Nav.Link>Favourites</Nav.Link>
+                  <Nav.Link className="navlink">Favourites</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/register">
-                  <Nav.Link>Register</Nav.Link>
+                  <Nav.Link className="navlink">Register</Nav.Link>
                 </LinkContainer>
                 {!user && (
                   <LinkContainer to="/login">
@@ -42,7 +42,7 @@ const Layout = () => {
                     <Button className="button-bright" onClick={logout}>
                       Log out
                     </Button>{" "}
-                    <div>Hello {user.email}</div>
+                    <div className="mx-3">Hello {user.email}</div>
                   </>
                 )}
               </Nav>

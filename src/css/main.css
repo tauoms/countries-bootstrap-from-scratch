@@ -1,5 +1,5 @@
 body {
-  background-color: #1a1423;
+  background-color: #292135;
   font-family: "Inter", "Courier New";
   letter-spacing: 120%;
 }
@@ -14,10 +14,6 @@ body {
 
 .subtitle {
   color: #a09aab;
-}
-
-.cstm-listgrp {
-  border-radius: 10px;
 }
 
 .cstm-listgrp:nth-child(odd) {
@@ -46,4 +42,12 @@ body {
 .button-dark:hover {
   background-color: #4b4554;
   color: #a09aab;
+}
+
+.navlink {
+  color: #d4cbe1;
+}
+
+.navlink-active {
+  color: #ede3fb;
 }
