@@ -1,20 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../services/countriesServices";
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Form,
-  ListGroup,
-  Row,
-  Spinner,
-} from "react-bootstrap";
+import { Button, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { search } from "../store/countriesSlice";
-import { addFavourite, removeFavourite } from "../store/favouritesSlice";
-import { Link } from "react-router-dom";
 import CountryCard from "./CountryCard";
 
 const Countries = () => {
