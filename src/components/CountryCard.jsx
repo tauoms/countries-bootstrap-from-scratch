@@ -27,14 +27,14 @@ const CountryCard = ({ country }) => {
             }}
           />
         </Link>
-        <Card.Body className="card d-flex flex-column justify-content-between">
-          <div>
+        <Card.Body className="card d-flex flex-column">
+          <div className="flex-grow-1">
             <Card.Title>{country.name.common}</Card.Title>
             <Card.Subtitle className="subtitle mb-5">
               {country.name.official}
             </Card.Subtitle>
           </div>
-          <ListGroup variant="flush" className="flex-grow-1">
+          <ListGroup variant="flush" className="mt-auto">
             <ListGroup.Item className="cstm-listgrp rounded-1">
               <i className="h5 bi bi-people me-2" />
               {country.population.toLocaleString()}

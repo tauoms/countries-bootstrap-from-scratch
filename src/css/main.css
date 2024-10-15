@@ -69,7 +69,7 @@ body {
 img {
   -webkit-filter: grayscale(18%); /* Safari 6.0 - 9.0 */
   filter: grayscale(18%);
-  transition: filter 0.5s ease-in-out;
+  transition: filter 0.3s ease-in-out;
 }
 
 .card:hover img {
