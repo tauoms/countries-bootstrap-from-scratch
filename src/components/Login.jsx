@@ -3,16 +3,26 @@ import { Button, Container } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, loginWithEmailAndPassword } from "../auth/firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
+  const favouritesList = useSelector((state) => state.favourites.favourites);
   const navigate = useNavigate();
 
   const handleLogin = () => {
     loginWithEmailAndPassword(email, password);
   };
+
+  if (user && favouritesList.length > 0) {
+    navigate("/favourites");
+  }
+
+  if (user) {
+    navigate("/");
+  }
 
   return (
     <Container
