@@ -23,6 +23,9 @@ const Register = () => {
   };
 
   // TODO: Add a check to see if user is logged in and navigate to countries if logged in
+  // if (user) {
+  //   navigate("/");
+  // }
 
   return (
     <Container

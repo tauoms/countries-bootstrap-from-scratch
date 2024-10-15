@@ -20,10 +20,11 @@ const Layout = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="align-items-center">
-                <LinkContainer to="/">
+                <i className="h2 bi bi-globe-asia-australia me-2" />
+                {/* <LinkContainer to="/">
                   <Nav.Link className="navlink">Home</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/countries">
+                </LinkContainer> */}
+                <LinkContainer to="/">
                   <Nav.Link className="navlink">Countries</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/favourites">

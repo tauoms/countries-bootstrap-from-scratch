@@ -19,12 +19,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* This is where other routes will go to allow Layout to be visible */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Countries />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
 
           <Route element={<ProtectedRoute user={user} />}>
-            <Route path="/countries" element={<Countries />} />
+            {/* <Route path="/countries" element={<Countries />} /> */}
             <Route path="countries/:single" element={<CountrySingle />} />
             <Route path="/favourites" element={<Favourites />} />
           </Route>

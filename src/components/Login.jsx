@@ -20,7 +20,7 @@ const Login = () => {
       className="d-flex flex-column align-items-center mt-5"
       style={{ minHeight: "100vh" }}
     >
-      <div>Hello {user?.email}</div>
+      <div>Hello, {user?.email}</div>
       <div className="d-flex flex-column gap-3">
         <input
           type="email"
