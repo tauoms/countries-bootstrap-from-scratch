@@ -28,7 +28,7 @@ const CountrySingle = (props) => {
       });
   }, [country.capital]);
 
-  console.log("Weather: ", weather);
+  // console.log("Weather: ", weather);
 
   // Handle the loading case first
 
