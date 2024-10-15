@@ -55,6 +55,12 @@ body {
   background-color: #a47ae0;
 }
 
+.button-bright:active,
+.button-bright.active {
+  background-color: #936cc9 !important;
+  border-color: #936cc9 !important;
+}
+
 .button-dark {
   background-color: #413b49;
   border: 0px;
@@ -64,6 +70,21 @@ body {
 .button-dark:hover {
   background-color: #4b4554;
   color: #a09aab;
+}
+
+.button-dark:active,
+.button-dark.active {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.button-bright:focus,
+.button-dark:focus {
+  outline: none;
 }
 
 .navlink {

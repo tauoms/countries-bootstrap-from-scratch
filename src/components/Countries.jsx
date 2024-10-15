@@ -25,6 +25,7 @@ const Countries = () => {
 
   const [sortField, setSortField] = useState("population");
   const [sortOrder, setSortOrder] = useState("desc");
+  const [activeSortButton, setActiveSortButton] = useState("population");
 
   console.log("Countries: ", countries);
   console.log("isLoading: ", isLoading);
@@ -50,8 +51,9 @@ const Countries = () => {
       setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
     } else {
       setSortField(field);
-      setSortOrder("asc");
+      setSortOrder("desc");
     }
+    setActiveSortButton(field);
   };
 
   // Handle the loading case here first (use Col, and Spinner)
@@ -87,13 +89,47 @@ const Countries = () => {
     });
 
   return (
-    <Container className="container-lg" style={{ maxWidth: "1300px" }}>
-      <Row className="mt-5">
+    <Container className="container-lg mt-5" style={{ maxWidth: "1300px" }}>
+      <Row>
         <Col className="mt-5 d-flex justify-content-center">
+          {/* Sort Buttons */}
+          <div>Sort by: </div>
+          <Button
+            onClick={() => toggleSortOrder("name")}
+            className={
+              activeSortButton === "name"
+                ? "button-bright me-3"
+                : "button-dark me-3"
+            }
+          >
+            Name {sortField === "name" && (sortOrder === "asc" ? "↑" : "↓")}
+          </Button>
+          <Button
+            onClick={() => toggleSortOrder("population")}
+            className={
+              activeSortButton === "population"
+                ? "button-bright me-3"
+                : "button-dark me-3"
+            }
+          >
+            Population{" "}
+            {sortField === "population" && (sortOrder === "asc" ? "↑" : "↓")}
+          </Button>
+          <Button
+            onClick={() => toggleSortOrder("area")}
+            className={
+              activeSortButton === "area"
+                ? "button-bright me-3"
+                : "button-dark me-3"
+            }
+          >
+            Area {sortField === "area" && (sortOrder === "asc" ? "↑" : "↓")}
+          </Button>
+
           <Form.Control
             style={{ width: "18rem" }}
             type="search"
-            className="search me-2"
+            className="search me-2 mx-3"
             placeholder="Search"
             aria-label="Search"
             onChange={(e) => dispatch(search(e.target.value))}
@@ -101,31 +137,7 @@ const Countries = () => {
         </Col>
       </Row>
 
-      {/* Sort Buttons */}
-      <Row className="mt-3 d-flex justify-content-center">
-        <Col className="d-flex justify-content-center">
-          <Button
-            variant="primary"
-            onClick={() => toggleSortOrder("name")}
-            className="me-3"
-          >
-            Sort by Name{" "}
-            {sortField === "name" && (sortOrder === "asc" ? "↑" : "↓")}
-          </Button>
-          <Button
-            variant="secondary"
-            onClick={() => toggleSortOrder("population")}
-            className="me-3"
-          >
-            Sort by Population{" "}
-            {sortField === "population" && (sortOrder === "asc" ? "↑" : "↓")}
-          </Button>
-          <Button variant="secondary" onClick={() => toggleSortOrder("area")}>
-            Sort by Area{" "}
-            {sortField === "area" && (sortOrder === "asc" ? "↑" : "↓")}
-          </Button>
-        </Col>
-      </Row>
+      <Row className="mt-3 d-flex justify-content-center"></Row>
 
       <Row xs={2} md={3} lg={4} xl={5} xxl={5} className="g-3 mt-5">
         {sortedCountries
