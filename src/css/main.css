@@ -12,7 +12,8 @@ body {
   border: 0px;
 }
 
-.subtitle {
+.subtitle,
+.copyright {
   color: #a09aab;
   font-size: medium;
 }

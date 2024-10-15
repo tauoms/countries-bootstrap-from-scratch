@@ -47,7 +47,7 @@ const Layout = () => {
                   </>
                 )}
               </Nav>
-              <div className="ms-auto align-items-center d-flex">
+              <div className="ms-auto align-items-center d-flex copyright">
                 <span>&copy; 2024 Tuomas Kohvakka</span>
               </div>
             </Navbar.Collapse>
