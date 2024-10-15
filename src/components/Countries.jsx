@@ -114,7 +114,10 @@ const Countries = () => {
           >
             Area {sortField === "area" && (sortOrder === "asc" ? "↑" : "↓")}
           </Button>
-
+        </Col>
+      </Row>
+      <Row>
+        <Col className="mt-5 d-flex justify-content-center align-items-center">
           <Form.Control
             style={{ width: "18rem" }}
             type="search"
