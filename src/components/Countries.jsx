@@ -82,8 +82,8 @@ const Countries = () => {
         return sortOrder === "asc" ? a.area - b.area : b.area - a.area;
       } else if (sortField === "name") {
         return sortOrder === "asc"
-          ? a.name.common.localeCompare(b.name.common)
-          : b.name.common.localeCompare(a.name.common);
+          ? a.name.common.localeCompare(b.name.common, "fi")
+          : b.name.common.localeCompare(a.name.common, "fi");
       }
       return 0;
     });
