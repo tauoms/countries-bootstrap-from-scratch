@@ -15,11 +15,11 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar className="cstm-nav">
-          <Container className="justify-content-end">
+        <Navbar className="cstm-nav" style={{ width: "100%" }}>
+          <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="align-items-center">
+              <Nav className="align-items-center justify-content-start">
                 <i className="h2 bi bi-globe-asia-australia me-2" />
                 {/* <LinkContainer to="/">
                   <Nav.Link className="navlink">Home</Nav.Link>
@@ -47,6 +47,9 @@ const Layout = () => {
                   </>
                 )}
               </Nav>
+              <div className="ms-auto align-items-center d-flex">
+                <span>&copy; 2024 Tuomas Kohvakka</span>
+              </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>
