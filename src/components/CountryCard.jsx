@@ -37,7 +37,15 @@ const CountryCard = ({ country }) => {
         </Link>
         <Card.Body className="card d-flex flex-column">
           <div className="flex-grow-1">
-            <Card.Title>{country.name.common}</Card.Title>
+            <Card.Title>
+              {favouritesList.includes(country.name.common) && (
+                <i
+                  className="h5 bi bi-star-fill me-2"
+                  style={{ color: "gold" }}
+                />
+              )}
+              {country.name.common}
+            </Card.Title>
             <Card.Subtitle
               className="shorten subtitle mb-5"
               title={country.name.official}
