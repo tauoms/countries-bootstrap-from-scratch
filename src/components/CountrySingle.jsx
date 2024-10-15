@@ -63,7 +63,7 @@ const CountrySingle = (props) => {
             <i className="h5 bi bi-wind" />
             {weather.wind.speed.toFixed(1)} m/s
           </div>
-          <Button variant="light" onClick={() => navigate("/countries")}>
+          <Button variant="light" onClick={() => navigate("/")}>
             Back to countries
           </Button>
         </Col>
