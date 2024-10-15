@@ -14,10 +14,18 @@ body {
 
 .subtitle {
   color: #a09aab;
+  font-size: medium;
 }
 
 .cstm-listgrp:nth-child(odd) {
   background-color: #7c6f89;
+}
+
+.shorten {
+  max-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .search,

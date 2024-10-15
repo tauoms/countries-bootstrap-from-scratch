@@ -6,6 +6,14 @@ import { addFavourite, removeFavourite } from "../store/favouritesSlice";
 const CountryCard = ({ country }) => {
   const dispatch = useDispatch();
   const favouritesList = useSelector((state) => state.favourites.favourites);
+  const currencies =
+    Object.values(country.currencies || {})
+      .map((currency) => `${currency.name} (${currency.symbol})`)
+      .join(", ") || "No currency";
+  const languages =
+    Object.values(country.languages || {})
+      .map((language) => language)
+      .join(", ") || "No official language";
 
   return (
     <Col className="mt-5" key={country.name.official}>
@@ -30,7 +38,10 @@ const CountryCard = ({ country }) => {
         <Card.Body className="card d-flex flex-column">
           <div className="flex-grow-1">
             <Card.Title>{country.name.common}</Card.Title>
-            <Card.Subtitle className="subtitle mb-5">
+            <Card.Subtitle
+              className="shorten subtitle mb-5"
+              title={country.name.official}
+            >
               {country.name.official}
             </Card.Subtitle>
           </div>
@@ -39,17 +50,19 @@ const CountryCard = ({ country }) => {
               <i className="h5 bi bi-people me-2" />
               {country.population.toLocaleString()}
             </ListGroup.Item>
-            <ListGroup.Item className="cstm-listgrp rounded-1">
+            <ListGroup.Item
+              className="shorten cstm-listgrp rounded-1"
+              title={currencies}
+            >
               <i className="h5 bi bi-cash-coin me-2" />
-              {Object.values(country.currencies || {})
-                .map((currency) => `${currency.name} (${currency.symbol})`)
-                .join(", ") || "No currency"}
+              {currencies}
             </ListGroup.Item>
-            <ListGroup.Item className="cstm-listgrp rounded-1">
+            <ListGroup.Item
+              className="shorten cstm-listgrp rounded-1"
+              title={languages}
+            >
               <i className="h5 bi bi-chat-dots me-2" />
-              {Object.values(country.languages || {})
-                .map((language) => language)
-                .join(", ") || "No official language"}
+              {languages}
             </ListGroup.Item>
           </ListGroup>
           <div className="mt-3">
