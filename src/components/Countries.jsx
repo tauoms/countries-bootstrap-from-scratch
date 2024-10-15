@@ -91,9 +91,9 @@ const Countries = () => {
   return (
     <Container className="container-lg mt-5" style={{ maxWidth: "1300px" }}>
       <Row>
-        <Col className="mt-5 d-flex justify-content-center">
+        <Col className="mt-5 d-flex justify-content-center align-items-center">
           {/* Sort Buttons */}
-          <div>Sort by: </div>
+          <div className="sort-by me-2">Sort by: </div>
           <Button
             onClick={() => toggleSortOrder("name")}
             className={
@@ -139,7 +139,7 @@ const Countries = () => {
 
       <Row className="mt-3 d-flex justify-content-center"></Row>
 
-      <Row xs={2} md={3} lg={4} xl={5} xxl={5} className="g-3 mt-5">
+      <Row xs={1} md={3} lg={4} xl={5} xxl={5} className="g-3 mt-5">
         {sortedCountries
           .filter((country) =>
             country.name.common
