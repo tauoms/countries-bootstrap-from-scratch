@@ -50,6 +50,10 @@ const CountryCard = ({ country }) => {
               <i className="h5 bi bi-people me-2" />
               {country.population.toLocaleString()}
             </ListGroup.Item>
+            <ListGroup.Item className="cstm-listgrp rounded-1">
+              <i className="h5 bi bi-grid-3x3 me-2" />
+              {country.area.toLocaleString()} km²
+            </ListGroup.Item>
             <ListGroup.Item
               className="shorten cstm-listgrp rounded-1"
               title={currencies}

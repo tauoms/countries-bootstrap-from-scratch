@@ -86,23 +86,3 @@ const Countries = () => {
 };
 
 export default Countries;
-
-{
-  /* {countries.map((country) => (
-          <Col
-          className="mt-5 d-flex justify-content-center"
-          key={country.name.common}
-          xs={12}
-          sm={6}
-          md={5}
-          lg={3}
-          xl={2}
-        >
-            <Container className="text-center p-4">
-              <Image src={country.flags.svg} alt="" fluid />
-              <strong>{country.name.common}</strong>
-              <p>Capital: {country.capital}</p>
-            </Container>
-          ))} 
-           </Col>*/
-}
