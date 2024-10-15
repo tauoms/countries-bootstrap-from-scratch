@@ -33,8 +33,8 @@ const Favourites = () => {
   const countriesLoading = useSelector((state) => state.countries.isLoading);
   // const searchInput = useSelector((state) => state.countries.search);
 
-  console.log("favouritesList: ", favouritesList);
-  console.log("countriesList inside favourites: ", countriesList);
+  // console.log("favouritesList: ", favouritesList);
+  // console.log("countriesList inside favourites: ", countriesList);
 
   if (Array.isArray(favouritesList) && favouritesList.length > 0) {
     filteredCountries = countriesList.filter((country) =>

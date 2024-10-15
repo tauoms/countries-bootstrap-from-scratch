@@ -27,8 +27,8 @@ const Countries = () => {
   const [sortOrder, setSortOrder] = useState("desc");
   const [activeSortButton, setActiveSortButton] = useState("population");
 
-  console.log("Countries: ", countries);
-  console.log("isLoading: ", isLoading);
+  // console.log("Countries: ", countries);
+  // console.log("isLoading: ", isLoading);
 
   // useEffect(() => {
   //   const exampleMapTest = () => {
