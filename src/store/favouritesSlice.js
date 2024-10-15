@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { addFavouriteToFirebase, auth, clearFavouritesFromFirebase, db } from "../auth/firebase";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, deleteDoc, getDocs, query, where } from "firebase/firestore";
 import { isLoading } from "./countriesSlice";
 
 const initialState = {
@@ -24,8 +24,24 @@ export const favouritesSlice = createSlice({
             if (user) clearFavouritesFromFirebase(user.uid);
             state.favourites = [];
         },
-        removeFavourite(state, action) {
-            state.favourites = state.favourites.filter(favourite => favourite !== action.payload)
+        removeFavourite (state, action) {
+            state.favourites = state.favourites.filter(favourite => favourite !== action.payload);
+
+            const user = auth.currentUser;
+            if (user) {
+                const q = query(
+                    collection(db, `users/${user.uid}/favourites`),
+                    where('name', '==', action.payload)
+                );
+                
+                getDocs(q).then((querySnapshot) => {
+                    querySnapshot.forEach((docSnap) => {
+                        deleteDoc(docSnap.ref);
+                    });
+                }).catch((error) => {
+                    console.error("Error removing favourite: ", error);
+                });
+            }
         },
         getFavourites(state, action) {
             state.favourites = action.payload;
