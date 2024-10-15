@@ -46,24 +46,60 @@ const CountrySingle = (props) => {
 
   return (
     <Container fluid className="mt-5 d-flex justify-content-center">
-      <Row className="country-info">
+      <Row className="country-info p-4 rounded shadow-sm">
         <Col className="mt-5 d-flex flex-column align-items-center">
-          <Image src={country.flags.svg} style={{ maxHeight: "200px" }} />
-          <h2>{country.name.common}</h2>
-          <h3>{country.capital}</h3>
+          <Image
+            src={country.flags.svg}
+            style={{ maxHeight: "200px" }}
+            className="mb-4 rounded"
+          />
+          <h2 className="text-center">{country.name.common}</h2>
+          <h3 className="text-muted">{country.capital}</h3>
 
-          <div>{weather.main.temp.toFixed(1)} °C</div>
-          <div>
+          <div className="mb-3">
+            <strong>Temperature:</strong> {weather.main.temp.toFixed(1)} °C
+          </div>
+          <div className="mb-3">
             <Image
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              alt={weather.weather[0].description}
             />
           </div>
-          <div>{weather.weather[0].description}</div>
-          <div>
-            <i className="h5 bi bi-wind" />
-            {weather.wind.speed.toFixed(1)} m/s
+          <div className="mb-3">
+            <strong>Condition:</strong> {weather.weather[0].description}
           </div>
-          <Button className="button-bright" onClick={() => navigate("/")}>
+          <div className="mb-3">
+            <i className="h5 bi bi-wind me-2" />
+            <strong>Wind Speed:</strong> {weather.wind.speed.toFixed(1)} m/s
+          </div>
+
+          {/* Additional Country Information */}
+          <div className="border-top w-100 mt-4 pt-3">
+            <div className="mb-2">
+              <strong>Population:</strong> {country.population.toLocaleString()}
+            </div>
+            <div className="mb-2">
+              <strong>Area:</strong> {country.area.toLocaleString()} km²
+            </div>
+            <div className="mb-2">
+              <strong>Region:</strong> {country.region}
+            </div>
+            <div className="mb-2">
+              <strong>Subregion:</strong> {country.subregion}
+            </div>
+            <div className="mb-2">
+              <strong>Languages:</strong>{" "}
+              {Object.values(country.languages || {}).join(", ")}
+            </div>
+            <div className="mb-2">
+              <strong>Currencies:</strong>{" "}
+              {Object.values(country.currencies || {})
+                .map((currency) => `${currency.name} (${currency.symbol})`)
+                .join(", ") || "No currency"}
+            </div>
+          </div>
+
+          <Button className="button-bright mt-4" onClick={() => navigate("/")}>
             Back to countries
           </Button>
         </Col>
