@@ -65,7 +65,7 @@ const Favourites = () => {
 
   return (
     <Container className="container-lg" style={{ maxWidth: "1300px" }}>
-      <Row>
+      <Row className="mt-5">
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
             <Form.Control
@@ -85,7 +85,7 @@ const Favourites = () => {
           </Button>
         </Col>
       </Row>
-      <Row xs={2} md={3} lg={4} xl={5} xxl={5} className="g-3">
+      <Row xs={2} md={3} lg={4} xl={5} xxl={5} className="g-3 mt-5">
         {countriesList
           .filter((country) =>
             country.name.common.toLowerCase().includes(search.toLowerCase())
