@@ -38,6 +38,9 @@ const Countries = () => {
   const toggleSortOrder = (field) => {
     if (sortField === field) {
       setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+    } else if (field === "name") {
+      setSortField(field);
+      setSortOrder("asc");
     } else {
       setSortField(field);
       setSortOrder("desc");
