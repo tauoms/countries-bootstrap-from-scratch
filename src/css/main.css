@@ -114,3 +114,14 @@ img {
 .sort-by {
   color: #d4cbe1;
 }
+
+.center-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}

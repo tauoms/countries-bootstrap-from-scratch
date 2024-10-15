@@ -63,7 +63,7 @@ const Countries = () => {
         animation="border"
         role="status"
         variant="info"
-        className="center"
+        className="center-spinner"
       />
     );
   }

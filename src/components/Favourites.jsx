@@ -54,7 +54,7 @@ const Favourites = () => {
           animation="border"
           role="status"
           variant="info"
-          className="center"
+          className="center-spinner"
         >
           <span className="visually-hidden">Loading...</span>
         </Spinner>

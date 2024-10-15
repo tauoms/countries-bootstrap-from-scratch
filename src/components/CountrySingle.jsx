@@ -17,7 +17,7 @@ const CountrySingle = (props) => {
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${
           country.capital
-        }&units=metric&appid=${import.meta.env.VITE_API_KEY}`
+        }&units=metric&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
       )
       .then((response) => {
         setWeather(response.data);
@@ -39,7 +39,7 @@ const CountrySingle = (props) => {
         animation="border"
         role="status"
         variant="info"
-        className="center"
+        className="center-spinner"
       />
     );
   }
