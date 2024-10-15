@@ -46,7 +46,7 @@ const CountrySingle = (props) => {
 
   return (
     <Container fluid className="mt-5 d-flex justify-content-center">
-      <Row>
+      <Row className="country-info">
         <Col className="mt-5 d-flex flex-column align-items-center">
           <Image src={country.flags.svg} style={{ maxHeight: "200px" }} />
           <h2>{country.name.common}</h2>
@@ -63,7 +63,7 @@ const CountrySingle = (props) => {
             <i className="h5 bi bi-wind" />
             {weather.wind.speed.toFixed(1)} m/s
           </div>
-          <Button variant="light" onClick={() => navigate("/")}>
+          <Button className="button-bright" onClick={() => navigate("/")}>
             Back to countries
           </Button>
         </Col>
