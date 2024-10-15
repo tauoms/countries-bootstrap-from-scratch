@@ -78,7 +78,13 @@ const Favourites = () => {
           </Form>
           <Button
             className="button-dark"
-            onClick={() => dispatch(clearFavourites())}
+            onClick={() => {
+              if (
+                window.confirm("Are you sure you want to clear all favourites?")
+              ) {
+                dispatch(clearFavourites());
+              }
+            }}
           >
             Clear Favourites
           </Button>
