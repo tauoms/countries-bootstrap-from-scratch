@@ -41,7 +41,7 @@ const CountryCard = ({ country }) => {
               {favouritesList.includes(country.name.common) && (
                 <i
                   className="h5 bi bi-star-fill me-2"
-                  style={{ color: "gold" }}
+                  style={{ color: "#a47ae0" }}
                 />
               )}
               {country.name.common}
