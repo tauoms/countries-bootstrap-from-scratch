@@ -57,16 +57,18 @@ const CountrySingle = (props) => {
           <h3 className="text-muted">{country.capital}</h3>
 
           <div className="mb-3">
-            <strong>Temperature:</strong> {weather.main.temp.toFixed(1)} °C
-          </div>
-          <div className="mb-3">
             <Image
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
               alt={weather.weather[0].description}
             />
           </div>
+
           <div className="mb-3">
             <strong>Condition:</strong> {weather.weather[0].description}
+          </div>
+          <div className="mb-3">
+            <i className="h5 bi bi-thermometer-half me-2" />
+            <strong>Temperature:</strong> {weather.main.temp.toFixed(1)} °C
           </div>
           <div className="mb-3">
             <i className="h5 bi bi-wind me-2" />
