@@ -90,7 +90,7 @@ const Favourites = () => {
           </Button>
         </Col>
       </Row>
-      <Row xs={2} md={3} lg={4} xl={5} xxl={5} className="g-3 mt-5">
+      <Row xs={1} md={3} lg={4} xl={5} xxl={5} className="g-3 mt-5">
         {filteredCountries
           .filter((country) =>
             country.name.common.toLowerCase().includes(search.toLowerCase())
