@@ -6,9 +6,22 @@ Features
 
 - View all countries with details like population, area, and more.
 - Search countries by name.
-- Sort countries by name, population, or area.
+- Sort countries by name, population, or area (ascending/descending).
 - Display detailed country info and real-time weather data for the capital.
 - Manage favourites with user authentication (Firebase).
+
+## Screenshot
+
+![Screenshot 2024-10-16 at 13 13 36](https://github.com/user-attachments/assets/0bf4cdc4-5c28-4a77-b69b-15247d17a3bc)
+
+## Technologies Used
+
+- React
+- Redux and Redux Toolkit​​​​​​
+- Firebase
+- Bootstrap
+- OpenWeather API
+- REST Countries API
 
 ## Installation
 
@@ -37,12 +50,3 @@ FIREBASE_API_KEY=your_firebase_api_key
 ```bash
 npm run dev
 ```
-
-## Technologies Used
-
-- React
-- Redux
-- Firebase
-- Bootstrap
-- OpenWeather API
-- REST Countries API
