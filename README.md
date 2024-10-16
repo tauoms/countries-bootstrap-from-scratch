@@ -2,7 +2,7 @@
 
 This is a React application for browsing country information, searching by name, and viewing details like weather and favourite countries.
 
-Features
+## Features
 
 - View all countries with details like population, area, and more.
 - Search countries by name.
