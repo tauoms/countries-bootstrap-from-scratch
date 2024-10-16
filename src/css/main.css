@@ -87,12 +87,13 @@ body {
   outline: none;
 }
 
-.navlink {
+.nav-link {
   color: #d4cbe1;
 }
 
-.navlink-active {
-  color: #ede3fb;
+.active-nav-link {
+  color: #fff;
+  font-weight: 500;
 }
 
 img {

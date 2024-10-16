@@ -24,17 +24,20 @@ const Layout = () => {
                 {/* <LinkContainer to="/">
                   <Nav.Link className="navlink">Home</Nav.Link>
                 </LinkContainer> */}
-                <LinkContainer to="/">
-                  <Nav.Link className="navlink">Countries</Nav.Link>
+                <LinkContainer to="/" activeClassName="active-nav-link">
+                  <Nav.Link>Countries</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/favourites">
-                  <Nav.Link className="navlink">Favourites</Nav.Link>
+                <LinkContainer
+                  to="/favourites"
+                  activeClassName="active-nav-link"
+                >
+                  <Nav.Link>Favourites</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/register">
-                  <Nav.Link className="navlink">Register</Nav.Link>
+                <LinkContainer to="/register" activeClassName="active-nav-link">
+                  <Nav.Link>Register</Nav.Link>
                 </LinkContainer>
                 {!user && (
-                  <LinkContainer to="/login">
+                  <LinkContainer to="/login" activeClassName="active-nav-link">
                     <Nav.Link>Log in</Nav.Link>
                   </LinkContainer>
                 )}
