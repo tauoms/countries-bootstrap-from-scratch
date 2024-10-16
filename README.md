@@ -12,7 +12,7 @@ Features
 
 ## Screenshot
 
-![Screenshot 2024-10-16 at 13 13 36](https://github.com/user-attachments/assets/0bf4cdc4-5c28-4a77-b69b-15247d17a3bc)
+![Screenshot 2024-10-16 at 13 15 21](https://github.com/user-attachments/assets/11117cfe-215a-4086-a2e1-9bcc8f41b8f8)
 
 ## Technologies Used
 
