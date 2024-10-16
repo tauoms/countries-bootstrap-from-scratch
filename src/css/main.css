@@ -15,7 +15,6 @@ body {
 .subtitle,
 .copyright {
   color: #a09aab;
-  font-size: medium;
 }
 
 .cstm-listgrp:nth-child(odd) {

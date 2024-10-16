@@ -54,7 +54,7 @@ const CountrySingle = (props) => {
             className="mb-4 rounded"
           />
           <h2 className="text-center">{country.name.common}</h2>
-          <h3 className="text-muted">{country.capital}</h3>
+          <h3 className="subtitle">{country.capital}</h3>
 
           <div className="mb-3">
             <Image
@@ -63,6 +63,7 @@ const CountrySingle = (props) => {
             />
           </div>
 
+          {/* Weather Data */}
           <div className="mb-3">
             <strong>Condition:</strong> {weather.weather[0].description}
           </div>
@@ -77,6 +78,7 @@ const CountrySingle = (props) => {
 
           {/* Additional Country Information */}
           <div className="border-top w-100 mt-4 pt-3">
+            <h5 className="text-center mb-4">Country Info:</h5>
             <div className="mb-2">
               <strong>Population:</strong> {country.population.toLocaleString()}
             </div>
