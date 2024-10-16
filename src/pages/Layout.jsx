@@ -43,10 +43,13 @@ const Layout = () => {
                 )}
                 {user && (
                   <>
-                    <Button className="button-bright" onClick={logout}>
-                      Log out
+                    <Button
+                      className="button-bright d-flex align-items-center justify-content-center"
+                      onClick={logout}
+                    >
+                      <i class="bi bi-box-arrow-right me-2" /> Log out
                     </Button>{" "}
-                    <div className="mx-3">Hello {user.email}</div>
+                    <div className="mx-3">Hello, {user.email}</div>
                   </>
                 )}
               </Nav>
