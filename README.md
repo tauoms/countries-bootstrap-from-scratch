@@ -42,7 +42,7 @@ npm install
 
 ```bash
 VITE_WEATHER_API_KEY=your_openweather_api_key
-FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_API_KEY=your_firebase_api_key
 ```
 
 4. Run the application:
