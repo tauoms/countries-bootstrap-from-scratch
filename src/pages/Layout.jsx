@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,6 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const Layout = () => {
   const [user] = useAuthState(auth);
+  const location = useLocation();
 
   return (
     <Container fluid>
@@ -24,21 +25,48 @@ const Layout = () => {
                 {/* <LinkContainer to="/">
                   <Nav.Link className="navlink">Home</Nav.Link>
                 </LinkContainer> */}
-                <LinkContainer to="/" activeClassName="active-nav-link">
-                  <Nav.Link>Countries</Nav.Link>
+                <LinkContainer to="/">
+                  <Nav.Link
+                    className={
+                      location.pathname === "/" ? "active-nav-link" : "nav-link"
+                    }
+                  >
+                    Countries
+                  </Nav.Link>
                 </LinkContainer>
-                <LinkContainer
-                  to="/favourites"
-                  activeClassName="active-nav-link"
-                >
-                  <Nav.Link>Favourites</Nav.Link>
+                <LinkContainer to="/favourites">
+                  <Nav.Link
+                    className={
+                      location.pathname === "/favourites"
+                        ? "active-nav-link"
+                        : "nav-link"
+                    }
+                  >
+                    Favourites
+                  </Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/register" activeClassName="active-nav-link">
-                  <Nav.Link>Register</Nav.Link>
+                <LinkContainer to="/register">
+                  <Nav.Link
+                    className={
+                      location.pathname === "/register"
+                        ? "active-nav-link"
+                        : "nav-link"
+                    }
+                  >
+                    Register
+                  </Nav.Link>
                 </LinkContainer>
                 {!user && (
-                  <LinkContainer to="/login" activeClassName="active-nav-link">
-                    <Nav.Link>Log in</Nav.Link>
+                  <LinkContainer to="/login">
+                    <Nav.Link
+                      className={
+                        location.pathname === "/login"
+                          ? "active-nav-link"
+                          : "nav-link"
+                      }
+                    >
+                      Log in
+                    </Nav.Link>
                   </LinkContainer>
                 )}
                 {user && (

@@ -88,12 +88,12 @@ body {
 }
 
 .nav-link {
-  color: #d4cbe1;
+  color: #d4cbe1 !important;
 }
 
 .active-nav-link {
-  color: #fff;
-  font-weight: 500;
+  color: #fff !important;
+  font-weight: 500 !important;
 }
 
 img {
